@@ -5,19 +5,19 @@ import Message from './Message';
 import Cart from './Cart';
 import Footer from './Footer';
 
-function App() {      
+function App() {
   return (
-    <div>      
+    <div>
       <Header />
       <main id="mainContainer">
         <div className="container">
-          <Products />      
-          <Message />        
-          <Cart/>
+          <Products />
+          <Message />
+          <Cart />
         </div>
       </main>
-      <Footer/>
-     </div>
+      <Footer />
+    </div>
   );
 }
 
