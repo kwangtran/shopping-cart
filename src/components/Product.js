@@ -4,10 +4,10 @@ export default class Product extends Component {
     showRating(rating) {
         var result = [];
         for (let i = 0; i < rating; i++) {
-            result.push(<i className="fa fa-star" />);
+            result.push(<i key={i} className="fa fa-star" />);
         }
         for (let i = 0; i < (5 - rating); i++) {
-            result.push(<i className="fa fa-star-o" />);
+            result.push(<i key={i + 100} className="fa fa-star-o" />);
         }
         return result;
     }
