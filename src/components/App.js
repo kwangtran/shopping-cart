@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Products from './Products';
+import ProductsContainer from '../containers/ProductsContainer';
 import Message from './Message';
 import Cart from './Cart';
 import Footer from './Footer';
@@ -11,7 +12,8 @@ function App() {
       <Header />
       <main id="mainContainer">
         <div className="container">
-          <Products />
+          {/* <Products /> */}
+          <ProductsContainer />
           <Message />
           <Cart />
         </div>
