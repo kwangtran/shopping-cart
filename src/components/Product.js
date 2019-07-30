@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 
 export default class Product extends Component {
     onAddToCart = (product) => {
-
+        console.log(this.props)
+        this.props.onAddToCart(product)
     }
     showRating(rating) {
         var result = [];

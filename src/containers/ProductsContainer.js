@@ -9,14 +9,22 @@ class ProductsContainer extends Component {
     render() {
         var { products } = this.props;
         return (
-            <Products >{this.showProducts(products)}</Products>
+            <Products >
+                {this.showProducts(products)}
+            </Products>
         )
     }
     showProducts(products) {
         var result = null;
+        var { onAddToCart } = this.props;
         if (products.length > 0) {
             result = products.map((product, index) => {
-                return (<Product key={index} product={product} />)
+                return (
+                    <Product
+                        key={index}
+                        product={product}
+                        onAddToCart={onAddToCart}
+                    />)
             })
         }
         return result;
@@ -45,9 +53,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        onAddToCart: (product, quantity) => {
+        onAddToCart: (product) => {
             dispatch(actAddToCart(product, 1))
         }
     }
 }
-export default connect(mapStateToProps, null)(ProductsContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsContainer);
