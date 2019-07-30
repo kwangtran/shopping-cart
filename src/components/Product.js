@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class Product extends Component {
     onAddToCart = (product) => {
-        console.log(this.props)
+        console.log(product)
         this.props.onAddToCart(product)
     }
     showRating(rating) {
@@ -49,7 +49,7 @@ export default class Product extends Component {
                                     data-placement="top"
                                     title=""
                                     data-original-title="Add to Cart"
-                                    onClick={(product) => this.onAddToCart(product)}
+                                    onClick={() => this.onAddToCart(product)}
                                 >
                                     <i className="fa fa-shopping-cart" />
                                 </a>

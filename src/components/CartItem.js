@@ -15,7 +15,7 @@ export default class CartItem extends Component {
             </th>
             <td>
               <h5>
-                <strong>{item.product.name}s</strong>
+                <strong>{item.product.name}</strong>
               </h5>
             </td>
             <td>{item.product.price}$</td>

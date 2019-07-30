@@ -18,7 +18,6 @@ export default class Cart extends Component {
             </thead>
             <tbody>
               {children}
-              {/* <CardResult /> */}
             </tbody>
           </table>
         </div>
