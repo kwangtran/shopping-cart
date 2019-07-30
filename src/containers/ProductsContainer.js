@@ -5,6 +5,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 
 class ProductsContainer extends Component {
+    render() {
+        var { products } = this.props;
+        return (
+            <Products >{this.showProducts(products)}</Products>
+        )
+    }
     showProducts(products) {
         var result = null;
         if (products.length > 0) {
@@ -13,13 +19,6 @@ class ProductsContainer extends Component {
             })
         }
         return result;
-    }
-
-    render() {
-        var { products } = this.props;
-        return (
-            <Products >{this.showProducts(products)}</Products>
-        )
     }
 }
 
