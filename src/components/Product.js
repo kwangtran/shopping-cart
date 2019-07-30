@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 
 export default class Product extends Component {
+    onAddToCart = (product) => {
+
+    }
     showRating(rating) {
         var result = [];
         for (let i = 0; i < rating; i++) {
@@ -39,7 +42,14 @@ export default class Product extends Component {
                         <div className="card-footer">
                             <span className="left">{product.price}$</span>
                             <span className="right">
-                                <a className="btn-floating blue-gradient" data-toggle="tooltip" data-placement="top" title data-original-title="Add to Cart">
+                                <a
+                                    className="btn-floating blue-gradient"
+                                    data-toggle="tooltip"
+                                    data-placement="top"
+                                    title=""
+                                    data-original-title="Add to Cart"
+                                    onClick={(product) => this.onAddToCart(product)}
+                                >
                                     <i className="fa fa-shopping-cart" />
                                 </a>
                             </span>
@@ -47,7 +57,6 @@ export default class Product extends Component {
                     </div>
                 </div>
             </div>
-
         )
     }
 }
