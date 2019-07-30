@@ -5,6 +5,7 @@ import ProductsContainer from '../containers/ProductsContainer';
 import Message from './Message';
 import Cart from './Cart';
 import Footer from './Footer';
+import CartContainer from '../containers/CartContainer';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
           {/* <Products /> */}
           <ProductsContainer />
           <Message />
-          <Cart />
+          {/* <Cart /> */}
+          <CartContainer />
         </div>
       </main>
       <Footer />
