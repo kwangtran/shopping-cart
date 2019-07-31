@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-
+import * as Messages from '../constants/Message'
 export default class Product extends Component {
     onAddToCart = (product) => {
         console.log(product)
-        this.props.onAddToCart(product)
+        this.props.onAddToCart(product);
+        this.props.onChangeMessage(Messages.MSG_ADD_TO_CART)
     }
     showRating(rating) {
         var result = [];

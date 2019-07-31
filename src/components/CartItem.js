@@ -1,11 +1,34 @@
 import React, { Component } from 'react'
-
+import * as Messages from '../constants/Message'
 export default class CartItem extends Component {
+    constructor(props) {
+        super(props);
+        this.setState({
+            quantity:1
+        });
+    }
+    
+    deleteProduct = (product) => {
+        this.props.onDeleteProduct(product);
+        this.props.onChangeMessage(Messages.MSG_ADD_DELETE_PRODUCT_IN_CART_SUCCESS)
+    }
+    onUpdateQuantity = (product,quantity) => {
+        if(quantity >0) {
+            this.setState({
+                quantity:quantity
+            })
+            this.props.onUpdateProductInCart(product,quantity);
+            this.props.onChangeMessage(Messages.MSG_UPDATE_CART_SUCCESS)
+        }
+
+    }
+
   showSubTotal = (price,quantity) => {
     return price * quantity;
   }
     render() {
       var {item} = this.props;
+      var {quantity} = item.quantity> 0?item:this.state;
         return (
             <tr>
             <th scope="row">
@@ -20,13 +43,17 @@ export default class CartItem extends Component {
             </td>
             <td>{item.product.price}$</td>
             <td className="center-on-small-only">
-              <span className="qty">{item.quantity} </span>
+              <span className="qty">{quantity} </span>
               <div className="btn-group radio-group" data-toggle="buttons">
-                <label className="btn btn-sm btn-primary
+                <label 
+                onClick={() => this.onUpdateQuantity(item.product,item.quantity-1)}
+                className="btn btn-sm btn-primary
                                       btn-rounded waves-effect waves-light">
                   <a>—</a>
                 </label>
-                <label className="btn btn-sm btn-primary
+                <label 
+                 onClick={() => this.onUpdateQuantity(item.product,item.quantity+1)}
+                className="btn btn-sm btn-primary
                                       btn-rounded waves-effect waves-light">
                   <a>+</a>
                 </label>
@@ -34,7 +61,13 @@ export default class CartItem extends Component {
             </td>
             <td>{this.showSubTotal(item.product.price, item.quantity)}$</td>
             <td>
-              <button type="button" className="btn btn-sm btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title data-original-title="Remove item">
+              <button 
+                onClick={() => this.deleteProduct(item.product)}
+                type="button" 
+                className="btn btn-sm btn-primary waves-effect waves-light" 
+                data-toggle="tooltip" data-placement="top" 
+                title 
+                data-original-title="Remove item">
                 X
               </button>
             </td>
